@@ -205,3 +205,9 @@ This project is open source and available for educational purposes.
 ---
 
 Built with ❤️ for Indian stock investors
+
+## Technical Blog
+
+Read the AWS Builder Center article about this project:
+(https://builder.aws.com/content/36CmWShiteMUQq4AJFl9CCO84WN/nifty-micro-vew)
+
