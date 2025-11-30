@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nifty Micro-View - Indian Stock Watchlist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📈 Nifty Micro-View</h1>
+            <p class="subtitle">Real-time Indian Stock Monitoring</p>
+        </header>
+
+        <!-- Stock Input Section -->
+        <section class="input-section glass-card">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="stockInput" 
+                    placeholder="Enter stock symbol (e.g., RELIANCE.NS)"
+                    autocomplete="off"
+                >
+                <button id="addStockBtn" class="btn btn-primary">Add Stock</button>
+            </div>
+            <div id="notification" class="notification"></div>
+        </section>
+
+        <!-- Recommendations Section -->
+        <section class="recommendations-section">
+            <h2>💡 Recommended Stocks</h2>
+            <div class="recommendations-grid">
+                <div class="recommendation-card glass-card" data-symbol="RELIANCE.NS">
+                    <div class="rec-symbol">RELIANCE.NS</div>
+                    <div class="rec-name">Reliance Industries</div>
+                    <div class="rec-reason">Market leader in energy & retail</div>
+                </div>
+                <div class="recommendation-card glass-card" data-symbol="TCS.NS">
+                    <div class="rec-symbol">TCS.NS</div>
+                    <div class="rec-name">Tata Consultancy Services</div>
+                    <div class="rec-reason">Top IT services provider</div>
+                </div>
+                <div class="recommendation-card glass-card" data-symbol="HDFCBANK.NS">
+                    <div class="rec-symbol">HDFCBANK.NS</div>
+                    <div class="rec-name">HDFC Bank</div>
+                    <div class="rec-reason">Leading private sector bank</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Watchlist Section -->
+        <section class="watchlist-section">
+            <div class="watchlist-header">
+                <h2>📊 Watchlist (<span id="stockCount">0</span> stocks)</h2>
+                <div class="action-buttons">
+                    <button id="refreshAllBtn" class="btn btn-secondary">
+                        <span class="btn-text">Refresh All</span>
+                        <span class="spinner" style="display: none;">⟳</span>
+                    </button>
+                    <button id="clearAllBtn" class="btn btn-danger">Clear All</button>
+                </div>
+            </div>
+            
+            <div class="table-container glass-card">
+                <div id="emptyState" class="empty-state">
+                    <p>No stocks in watchlist. Add stocks to get started!</p>
+                </div>
+                <table id="watchlistTable" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Prev Close</th>
+                            <th>Change</th>
+                            <th>% Change</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="watchlistBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
